@@ -1,7 +1,8 @@
 /**
  * Created by Павел on 07.04.2017.
  */
-function scrollLinks($sliderLink, height, side) {
+let height = 0;
+function scrollLinks($sliderLink, side) {
     $(`.${side}-slide`).on("mousewheel", (e) => {
         if (e.deltaY === 1 && $sliderLink.eq($sliderLink.length - 1).data("itemPos") < 4) {
             $sliderLink.each((id, obj) => {
@@ -30,11 +31,18 @@ function scrollLinks($sliderLink, height, side) {
 }
 $(document).ready(() => {
     let $sliderImg = $(".slider-link img"), $sliderLinkLeft = $(".slider-link_left"), $sliderLink = $(".slider-link"),
-        height = $sliderImg.height(), $sliderLinkRight = $(".slider-link_right");
+        $sliderLinkRight = $(".slider-link_right");
+    height = $sliderImg.height();
     $sliderLink.outerHeight($sliderImg.height());
     $(window).resize(() => {
         $sliderLink.outerHeight($sliderImg.height());
         height = $sliderImg.height();
+        $sliderLink.each((id, obj) => {
+            $(obj).css({
+                position: "absolute",
+                top: $(obj).data("itemPos") * height
+            });
+        });
     });
     $sliderLinkLeft.each((id, obj) => {
         $(obj).data("itemPos", id);
@@ -56,6 +64,40 @@ $(document).ready(() => {
         .mouseleave(function () {
             $(this).fadeTo(0, 0.9 ** ($(this).data("itemPos") * 3))
         });
-    scrollLinks($sliderLinkLeft, height, "left");
-    scrollLinks($sliderLinkRight, height, "right")
+    scrollLinks($sliderLinkLeft, "left");
+    scrollLinks($sliderLinkRight, "right")
+//    Для мобильныз устройств
+
+    $(window).keydown((e) => {
+        e.preventDefault();
+        if (e.which === 37) $(window).trigger("swipeleft");
+        if (e.which === 39) $(window).trigger("swiperight");
+    });
+    $(window).on("swipeleft", () => {
+        if ($(".right-slider_show_xs").length === 0) $(".left-slider").addClass("left-slider_show_xs");
+        else $(".right-slider_show_xs").removeClass("right-slider_show_xs");
+        height = $sliderLinkLeft.children("img").height();
+        $sliderLink.outerHeight(height);
+        $sliderLink.each((id, obj) => {
+            $(obj).css({
+                position: "absolute",
+                top: $(obj).data("itemPos") * height
+            });
+        });
+        console.log(height);
+    });
+    $(window).on("swiperight", () => {
+        if ($(".left-slider_show_xs").length === 0) $(".right-slider").addClass("right-slider_show_xs");
+        else $(".left-slider_show_xs").removeClass("left-slider_show_xs")
+        height = $sliderLinkRight.children("img").height();
+        $sliderLink.outerHeight(height);
+        $sliderLink.each((id, obj) => {
+            $(obj).css({
+                position: "absolute",
+                top: $(obj).data("itemPos") * height
+            });
+        });
+        console.log(height);
+    });
+
 });
