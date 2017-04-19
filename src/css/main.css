@@ -1,0 +1,277 @@
+@font-face {
+  font-family: "PlayfairDisplay";
+  src: url("../fonts/PlayfairDisplay-BoldItalic.ttf");
+  font-weight: 900;
+  font-style: italic; }
+
+* {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font: 900 12px sans-serif;
+  color: #ffffff; }
+
+body {
+  overflow: hidden;
+  background: #222222; }
+
+.home-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  background: url("../img/background-video@2x.jpg") center center no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s; }
+
+.wrapper-center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.logo {
+  display: block;
+  margin: 26px auto;
+  width: 150px;
+  text-align: center;
+  vertical-align: middle; }
+
+.logo__lines {
+  width: 15px;
+  height: 6px;
+  border-top: solid #ffffff 2px;
+  border-bottom: solid #ffffff 2px;
+  display: inline-block;
+  margin: 0 15px 10px 0; }
+
+h2 {
+  display: inline-block;
+  font: 900 50px/60px sans-serif;
+  max-width: 450px; }
+
+.design {
+  text-align: right; }
+
+.center-oval {
+  width: 144px;
+  height: 144px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  border: dotted rgba(255, 255, 255, 0.2) 1px;
+  position: relative; }
+
+.oval {
+  width: 60px;
+  height: 60px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  border: solid #ffffff 2px;
+  opacity: 1;
+  position: absolute;
+  top: 40px;
+  left: 40px; }
+  .oval:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    border-right: solid #ffffff 11px;
+    border-top: solid transparent 8px;
+    border-bottom: solid transparent 8px;
+    top: 22px;
+    left: 15px; }
+  .oval:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    border-left: solid #ffffff 11px;
+    border-top: solid transparent 8px;
+    border-bottom: solid transparent 8px;
+    top: 22px;
+    left: 35px; }
+
+.company {
+  width: 100px;
+  margin: 0 auto; }
+
+.portfolio__link {
+  background: #f8574a;
+  width: 160px;
+  height: 60px;
+  position: absolute;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  letter-spacing: 0.8px;
+  line-height: 60px; }
+  .portfolio__link:hover {
+    background: #ec2c1c; }
+
+.slide {
+  -webkit-box-shadow: inset 50px 50px 50px 1px #222222;
+          box-shadow: inset 50px 50px 50px 1px #222222;
+  overflow: hidden; }
+
+.slider-list {
+  position: relative; }
+  .slider-list a {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    position: relative;
+    height: 145px;
+    border-bottom: dotted rgba(0, 0, 0, 0.3) 3px;
+    text-decoration: none;
+    padding: 0 0 0 20%;
+    width: 100%; }
+    .slider-list a img {
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      -webkit-transition-duration: 0.3s;
+              transition-duration: 0.3s; }
+
+.client {
+  font: 700 italic 10px "PlayfairDisplay";
+  text-transform: lowercase; }
+
+.list__header {
+  font-size: 20px;
+  letter-spacing: 0.6px;
+  line-height: 1.35; }
+
+.eye-oval {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  background: url("../img/icon-eye-copy.svg") center no-repeat;
+  position: absolute;
+  top: 50%;
+  border: solid #ffffff 2px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  margin: -19px;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s; }
+  .eye-oval:hover {
+    width: 46px;
+    height: 46px;
+    margin: -23px; }
+
+.left-slide {
+  background: #222222;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s; }
+
+.left-slider {
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; }
+
+.portfolio__link_left {
+  bottom: 5%;
+  left: 15%; }
+
+.slider-list_left a img {
+  left: -90%; }
+
+.slider-list_left a .eye-oval {
+  left: -50%; }
+
+.slider-list_left a:hover img {
+  left: 0; }
+
+.slider-list_left a:hover .eye-oval {
+  left: 40%; }
+
+.right-slide {
+  background: #222222;
+  position: absolute;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100%;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s; }
+
+.right-slider {
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1; }
+
+.portfolio__link_right {
+  bottom: 5%;
+  right: 15%; }
+
+.slider-list_right a img {
+  right: -80%;
+  -webkit-transition: .3s;
+  transition: .3s; }
+
+.slider-list_right a .eye-oval {
+  right: -50%; }
+
+.slider-list_right a:hover img {
+  right: 0; }
+
+.slider-list_right a:hover .eye-oval {
+  right: 50%; }
+
+.left-slider:hover + .home-container {
+  left: 20%; }
+  .left-slider:hover + .home-container .oval:before {
+    border-right: solid rgba(255, 255, 255, 0.2) 11px; }
+
+.left-slider:hover .left-slide {
+  left: 0; }
+
+.right-slider:hover ~ .home-container {
+  left: -20%; }
+  .right-slider:hover ~ .home-container .oval:after {
+    border-left: solid rgba(255, 255, 255, 0.2) 11px; }
+
+.right-slider:hover .right-slide {
+  right: 0; }

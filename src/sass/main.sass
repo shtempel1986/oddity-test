@@ -1,0 +1,223 @@
+$coral: #f8574a
+$white: #ffffff
+$black: #222222
+@font-face
+  font-family: "PlayfairDisplay"
+  src: url("../fonts/PlayfairDisplay-BoldItalic.ttf")
+  font-weight: 900
+  font-style: italic
+*
+  margin: 0
+  padding: 0
+  text-transform: uppercase
+  font: 900 12px sans-serif
+  color: $white
+body
+  overflow: hidden
+  background: $black
+.home-container
+  position: absolute
+  left: 0
+  top: 0
+  overflow: hidden
+  background: url("../img/background-video@2x.jpg") center center no-repeat
+  background-size: cover
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  transition-duration: 0.5s
+.wrapper-center
+  display: flex
+  justify-content: space-between
+.logo
+  display: block
+  margin: 26px auto
+  width: 150px
+  text-align: center
+  vertical-align: middle
+.logo__lines
+  width: 15px
+  height: 6px
+  border-top: solid $white 2px
+  border-bottom: solid $white 2px
+  display: inline-block
+  margin: 0 15px 10px 0
+h2
+  display: inline-block
+  font: 900 50px/60px sans-serif
+  max-width: 450px
+.design
+  text-align: right
+.center-oval
+  width: 144px
+  height: 144px
+  border-radius: 50%
+  border: dotted rgba(255,255,255,.2) 1px
+  position: relative
+.oval
+  width: 60px
+  height: 60px
+  border-radius: 50%
+  border: solid $white 2px
+  opacity: 1
+  position: absolute
+  top: 40px
+  left: 40px
+  &:before
+    content: ""
+    display: inline-block
+    position: absolute
+    border-right: solid $white 11px
+    border-top: solid transparent 8px
+    border-bottom: solid transparent 8px
+    top: 22px
+    left: 15px
+  &:after
+    content: ""
+    display: inline-block
+    position: absolute
+    border-left: solid $white 11px
+    border-top: solid transparent 8px
+    border-bottom: solid transparent 8px
+    top: 22px
+    left: 35px
+.company
+  width: 100px
+  margin: 0 auto
+.portfolio__link
+  background: $coral
+  width: 160px
+  height: 60px
+  position: absolute
+  text-transform: uppercase
+  text-decoration: none
+  text-align: center
+  vertical-align: middle
+  letter-spacing: 0.8px
+  line-height: 60px
+  &:hover
+    background: #ec2c1c
+.slide
+  box-shadow: inset 50px 50px 50px 1px $black
+  overflow: hidden
+.slider-list
+  position: relative
+  a
+    display: flex
+    flex-direction: column
+    justify-content: center
+    position: relative
+    height: 145px
+    border-bottom: dotted rgba(0,0,0,.3) 3px
+    text-decoration: none
+    padding: 0 0 0 20%
+    width: 100%
+    img
+      display: block
+      position: absolute
+      top: 0
+      width: 100%
+      transition-duration: 0.3s
+.client
+  font: 700 italic 10px "PlayfairDisplay"
+  text-transform: lowercase
+.list__header
+  font-size: 20px
+  letter-spacing: 0.6px
+  line-height: 1.35
+.eye-oval
+  display: inline-block
+  width: 38px
+  height: 38px
+  background: url("../img/icon-eye-copy.svg") center no-repeat
+  position: absolute
+  top: 50%
+  border: solid $white 2px
+  border-radius: 50%
+  margin: -19px
+  transition-duration: .3s
+  &:hover
+    width: 46px
+    height: 46px
+    margin: -23px
+
+
+.left-slide
+  background: $black
+  position: absolute
+  top: 0
+  left: -100%
+  width: 100%
+  height: 100%
+  transition-duration: 0.5s
+.left-slider
+  width: 20%
+  height: 100%
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 1
+.portfolio__link_left
+  bottom: 5%
+  left: 15%
+.slider-list_left
+  a
+    img
+      left: -90%
+    .eye-oval
+      left: -50%
+    &:hover
+      img
+        left: 0
+      .eye-oval
+        left: 40%
+
+//Правый слайдер
+.right-slide
+  background: $black
+  position: absolute
+  top: 0
+  right: -100%
+  width: 100%
+  height: 100%
+  transition-duration: 0.5s
+.right-slider
+  width: 20%
+  height: 100%
+  position: absolute
+  top: 0
+  right: 0
+  z-index: 1
+.portfolio__link_right
+  bottom: 5%
+  right: 15%
+.slider-list_right
+  a
+    img
+      right: -80%
+      transition: .3s
+    .eye-oval
+      right: -50%
+    &:hover
+      img
+        right: 0
+      .eye-oval
+        right: 50%
+
+//При наведении на левую сторону
+.left-slider:hover+.home-container
+  left: 20%
+  & .oval:before
+    border-right: solid rgba(255,255,255,.2) 11px
+.left-slider:hover .left-slide
+  left: 0
+
+//При наведении на правую сторону
+.right-slider:hover~.home-container
+  left: -20%
+  & .oval:after
+    border-left: solid rgba(255,255,255,.2) 11px
+.right-slider:hover .right-slide
+  right: 0
