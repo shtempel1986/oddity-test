@@ -33,7 +33,7 @@ gulp.task('scripts', function () {
         .pipe(babel())
         .pipe(rename('main.js'))
         .pipe(gulp.dest('src/js'));
-    return gulp.src('src/libs/jquery.mousewheel.js')
+    return gulp.src(['src/libs/jquery.mousewheel.js'])
         .pipe(concat('libs.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('src/js'));

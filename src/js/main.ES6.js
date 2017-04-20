@@ -65,13 +65,19 @@ $(document).ready(() => {
             $(this).fadeTo(0, 0.9 ** ($(this).data("itemPos") * 3))
         });
     scrollLinks($sliderLinkLeft, "left");
-    scrollLinks($sliderLinkRight, "right")
-//    Для мобильныз устройств
+    scrollLinks($sliderLinkRight, "right");
+//    Для мобильных устройств
 
     $(window).keydown((e) => {
-        e.preventDefault();
-        if (e.which === 37) $(window).trigger("swipeleft");
-        if (e.which === 39) $(window).trigger("swiperight");
+
+        if (e.which === 37) {
+            $(window).trigger("swipeleft");
+            e.preventDefault();
+        }
+        if (e.which === 39) {
+            $(window).trigger("swiperight");
+            e.preventDefault();
+        }
     });
     $(window).on("swipeleft", () => {
         if ($(".right-slider_show_xs").length === 0) $(".left-slider").addClass("left-slider_show_xs");
@@ -84,7 +90,6 @@ $(document).ready(() => {
                 top: $(obj).data("itemPos") * height
             });
         });
-        console.log(height);
     });
     $(window).on("swiperight", () => {
         if ($(".left-slider_show_xs").length === 0) $(".right-slider").addClass("right-slider_show_xs");
@@ -97,7 +102,5 @@ $(document).ready(() => {
                 top: $(obj).data("itemPos") * height
             });
         });
-        console.log(height);
     });
-
 });

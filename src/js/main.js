@@ -66,12 +66,18 @@ $(document).ready(function () {
     });
     scrollLinks($sliderLinkLeft, "left");
     scrollLinks($sliderLinkRight, "right");
-    //    Для мобильныз устройств
+    //    Для мобильных устройств
 
     $(window).keydown(function (e) {
-        e.preventDefault();
-        if (e.which === 37) $(window).trigger("swipeleft");
-        if (e.which === 39) $(window).trigger("swiperight");
+
+        if (e.which === 37) {
+            $(window).trigger("swipeleft");
+            e.preventDefault();
+        }
+        if (e.which === 39) {
+            $(window).trigger("swiperight");
+            e.preventDefault();
+        }
     });
     $(window).on("swipeleft", function () {
         if ($(".right-slider_show_xs").length === 0) $(".left-slider").addClass("left-slider_show_xs");else $(".right-slider_show_xs").removeClass("right-slider_show_xs");
@@ -83,7 +89,6 @@ $(document).ready(function () {
                 top: $(obj).data("itemPos") * height
             });
         });
-        console.log(height);
     });
     $(window).on("swiperight", function () {
         if ($(".left-slider_show_xs").length === 0) $(".right-slider").addClass("right-slider_show_xs");else $(".left-slider_show_xs").removeClass("left-slider_show_xs");
@@ -95,6 +100,5 @@ $(document).ready(function () {
                 top: $(obj).data("itemPos") * height
             });
         });
-        console.log(height);
     });
 });
